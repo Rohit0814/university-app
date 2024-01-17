@@ -14,15 +14,12 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <body class="font-sans text-gray-900 bg-gray-100 antialiased">
+        <div class="w-[99.99%] flex max-[600px]:justify-center sticky top-0" style="background:#11235A">
+            <a href="/" class="pt-3 pb-3"><span class="text-white w-full m-2 px-20 text-3xl min-[823px]:text-left font-bold max-[405px]:text-xl cursor-pointer" style="font-family: 'Roboto', sans-serif;">College Authority</span></a>
+        </div>
+        <div class="flex items-center ml-3 mr-3 h-[92vh]  sm:justify-center  pt-6 sm:pt-0">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
