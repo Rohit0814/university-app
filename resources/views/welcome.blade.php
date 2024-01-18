@@ -16,20 +16,26 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body class="h-screen">
-        <div class="w-[99.99%] flex max-[600px]:justify-center sticky top-0" style="background:#11235A">
-            <a href="/" class="pt-3 pb-3"><span class="text-white w-full m-2 px-20 text-3xl min-[823px]:text-left font-bold max-[405px]:text-xl cursor-pointer" style="font-family: 'Roboto', sans-serif;">College Authority</span></a>
-        </div>
+        <x-navbar/>
 
         <div class="flex justify-center flex-col items-center pt-5 pb-5">
             <h1 class="text-3xl font-bold">Welcome to University</h1>
             <p class="text-red-700 font-semibold">Our Vision to make entire System Online</p>
         </div>
 
+        
         <div class="flex w-full justify-around flex-wrap">
+            @if(Route::has('admin.login'))
+            @auth('admin')
+            <x-login-card-component designation="Admin" description="Only Adminstrative Use" fontIcon="fa-solid fa-user-tie text-yellow-600" userType="admin" extendClass="border-yellow-600"/>
+            @else
             <x-login-card-component designation="Student" description="Only Register Student can login" fontIcon="fa-solid fa-graduation-cap text-red-600" userType="student" extendClass="border-red-600"/>
             <x-login-card-component designation="Teacher" description="Only for Acadamic Personality" fontIcon="fa-solid fa-chalkboard-user text-blue-600" userType="teacher" extendClass="border-blue-600"/>
             <x-login-card-component designation="Admin" description="Only Adminstrative Use" fontIcon="fa-solid fa-user-tie text-yellow-600" userType="admin" extendClass="border-yellow-600"/>
-        </div><br><br>
+            @endauth
+            @endif
+        </div>
+        <br><br>
 
         <div class=" max-[445px]:ml-2 max-[445px]:mr-1 flex justify-around flex-wrap ml-10 mr-10">
             <div class=" min-[1086px]:w-[48%] min-[825px]:w-[80%] w-[100%]  mb-7 mr-2 border-5 " >
