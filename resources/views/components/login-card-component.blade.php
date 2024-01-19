@@ -5,16 +5,14 @@
     <div class="p-5">
         <h3 class=" text-xl font-bold">{{ $designation }}</h3>
         <span>{{ $description }}</span><br><br>
-        @if(Route::has('admin.login'))
-        @auth('admin')
-            <a href={{ url('/admin/dashboard') }} class="font-semibold text-black hover:text-blue-800 hover:font-extrabold">Admin Dashboard</a>
-        @else
             <a href="
             @if($userType=='admin')
             {{ route('admin.login') }}
+            @elseif ($userType=='faculty')
+            {{ route('faculty.login') }}
+            @elseif($userType=='student')
+            {{ route('student.login') }}
             @endif
             " class="font-semibold text-black hover:text-blue-800 hover:font-extrabold">Login&nbsp;<i class="fa-solid fa-right-to-bracket"></i></a>
-            @endauth
-            @endif
     </div>
 </div>

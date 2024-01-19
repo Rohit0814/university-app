@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Providers\AdminServiceProvider;
+use App\Providers\FacultyServiceProvider;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -24,6 +25,11 @@ class RedirectIfAuthenticated
             if ($guard == 'admin' && Auth::guard($guard)->check()) {
                 return redirect(AdminServiceProvider::ADMINHOME);
             }
+
+            if ($guard == 'faculty' && Auth::guard($guard)->check()) {
+                return redirect(FacultyServiceProvider::FACULTYHOME);
+            }
+
 
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);

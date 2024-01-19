@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id('Reg_No');
             $table->string('Name');
             $table->string('Email');
-            $table->date('DOB');
+            $table->date('DOB')->nullable();
             $table->string('contact');
+            $table->string('password');
             $table->enum('gender',['Male','Female','Other']);
             $table->text('address');
             $table->timestamps();

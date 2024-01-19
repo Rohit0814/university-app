@@ -43,17 +43,17 @@ return [
 
         'student' => [
             'driver' => 'session',
-            'provider' => 'student',
+            'provider' => 'students',
         ],
 
         'faculty' => [
             'driver' => 'session',
-            'provider' => 'faculty',
+            'provider' => 'faculties',
         ],
 
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admins',
         ],
 
     ],
@@ -81,16 +81,16 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        'student' => [
+        'students' => [
             'driver' => 'eloquent',
             'model' => App\Models\Student::class,
         ],
 
-        'faculty' => [
+        'faculties' => [
             'driver' => 'eloquent',
             'model' => App\Models\Faculty::class,
         ],
-        'admin' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],

@@ -14,17 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request,$userType) {
-    if($userType=='admin'){
-        return $request->admin();
-    }
-    else if($userType == 'faculty'){
-        return $request->faculty();
-    }
-    else if($userType == 'student'){
-        return $request->student();
-    }
-    else{
-        return view('welcome');
-    }
-});
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+

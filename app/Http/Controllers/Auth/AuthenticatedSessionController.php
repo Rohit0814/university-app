@@ -4,13 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\Admin;
 use App\Providers\RouteServiceProvider;
-
-use App\Providers\AdminServiceProvider;
-use App\Providers\StudentServiceProvider;
-use App\Providers\FacultyServiceProvider;
-
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,39 +15,21 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    // public function create(Request $request): View
-    // {
-    //     return view('auth.login');
-    // }
-
-    public function student(Request $request, $userType): View
+    public function create(): View
     {
-        $d=$userType;
-        $data=compact('userType');
-        return view('auth.login')->with($data);
+        return view('auth.login');
     }
 
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request,$userType): RedirectResponse
+    public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-        $request->session()->regenerate();
-        if($userType=='admin'){
-            return redirect()->intended(AdminServiceProvider::ADMINHOME);
-        }
-        else if($userType=='student'){
-            return redirect()->intended(StudentServiceProvider::STUDENTHOME);
-        }
-        else if($userType=='teacher'){
-            return redirect()->intended(FacultyServiceProvider::FACULTYHOME);
-        }
-        else{
-            return view('/');
-        }
 
-            
+        $request->session()->regenerate();
+
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

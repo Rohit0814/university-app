@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id('Emp_No');
             $table->string('Name');
             $table->string('Email');
-            $table->date('DOB');
-            $table->date('DOJ');
+            $table->date('DOB')->nullable();
+            $table->date('DOJ')->nullable();
+            $table->string('password');
             $table->string('contact');
             $table->enum('gender',['Male','Female','Other']);
             $table->text('address');
