@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -13,28 +14,31 @@ class StudentController extends Controller
     }
 
     public function login(){
+        if (Auth::guard('student')->check()) {
+            return redirect()->route('student.dashboard');
+        }
         return view('student.auth.login');
     }
 
-    public function login_submit(Request $request){
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-        $credentials = $request->only('email','password');
+    public function login_submit(Request $request)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        if(Auth::guard('student')->attempt($credentials)){
-            $user = Student::where('email',$request->input('email'))->first();
-            Auth::guard('student')->login($user);
-            return redirect()->route('student.dashboard')->with('success','Login Successfull');
-        }
-        else{
-            return redirect()->route('student.auth.login')->with('error','Login Unsuccessfull');
-        }
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::guard('student')->attempt($credentials)) {
+        return redirect()->route('student.dashboard')->with('success', 'Login Successful');
+    } else {
+        return redirect()->route('student.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
+}
+
 
     public function logout(){
         Auth::guard('student')->logout();
-        return redirect()->route('student.auth.login')->with('success','Logout successfull');
+        return redirect()->route('student.login')->with('success','Logout successfull');
     }
 }

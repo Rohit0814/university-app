@@ -10,6 +10,24 @@
     <form method="POST" action="{{ route('admin.login_submit') }}">
         @csrf
 
+
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <span class="text-red-800 font-bold text-center">{{ $error }}</span><br>
+            
+        @endforeach
+        @endif
+        @if(Session::get('error'))
+        <span class="text-red-800 font-bold text-center">{{ Session::get('error') }}</span><br>
+        @endif
+
+        @if(Session::get('success'))
+        <span class="text-green-800 font-bold text-center">{{ Session::get('success') }}</span><br>
+        @endif
+        
+
+
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -50,4 +68,6 @@
             </x-primary-button>
         </div>
     </form>
+
+
 </x-admin-guest-layout>

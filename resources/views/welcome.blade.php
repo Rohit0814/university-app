@@ -25,9 +25,9 @@
 
         
         <div class="flex w-full justify-around flex-wrap">
-                <x-login-card-component designation="Student" description="Only Register Student can login" fontIcon="fa-solid fa-graduation-cap text-red-600" userType="student" extendClass="border-red-600"/>
-                <x-login-card-component designation="Faculty" description="Only for Acadamic Personality" fontIcon="fa-solid fa-chalkboard-user text-blue-600" userType="faculty" extendClass="border-blue-600"/>
-                <x-login-card-component designation="Admin" description="Only Adminstrative Use" fontIcon="fa-solid fa-user-tie text-yellow-600" userType="admin" extendClass="border-yellow-600"/>
+            <x-login-card-component designation="Student" description="Only Register Student can login" fontIcon="fa-solid fa-graduation-cap text-red-600" userType="student" extendClass="border-red-600"/>
+            <x-login-card-component designation="Faculty" description="Only for Acadamic Personality" fontIcon="fa-solid fa-chalkboard-user text-blue-600" userType="faculty" extendClass="border-blue-600"/>
+            <x-login-card-component designation="Admin" description="Only Adminstrative Use" fontIcon="fa-solid fa-user-tie text-yellow-600" userType="admin" extendClass="border-yellow-600"/>
         </div>
         <br><br>
 

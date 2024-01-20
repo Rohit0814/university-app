@@ -16,9 +16,10 @@ class FacultyMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-
+        // dd(Auth::guard('faculty')->check());
+        
         if(!Auth::guard('faculty')->check()){
-            return redirect()->route('faculty.login')->with('error','You do not have access');
+            return redirect()->route('faculty.login')->with('error','You do not have access of Faculty panel');
         }
 
 
