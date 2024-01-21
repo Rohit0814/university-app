@@ -18,7 +18,11 @@ class Student extends Authenticatable
      * @var array<int, string>
      */
 
+    protected $table= 'students';
+    
     protected $guard = 'student';
+
+    protected $primaryKey = 'Reg_No';
 
     protected $fillable = [
         'name',

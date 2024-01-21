@@ -18,12 +18,19 @@ class Faculty extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $guard = 'faculty';
+    protected $table = 'faculties';
+
+    protected $guard='faculty';
+
+    protected $primaryKey = 'Emp_No';
 
     protected $fillable = [
         'name',
         'email',
         'password',
+        'contact',
+        'gender',
+        'address',
     ];
 
     /**
@@ -46,4 +53,3 @@ class Faculty extends Authenticatable
         'password' => 'hashed',
     ];
 }
-

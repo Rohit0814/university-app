@@ -17,6 +17,11 @@ class FacultyMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // dd(Auth::guard('faculty')->check());
+        // dd(auth('admin')->check());
+        // dd('Middleware executing', Auth::guard('faculty')->user());
+        // dd(Auth::guard()->getName());
+        // dd('Middleware executing', Auth::getDefaultDriver());
+        // dd(Auth::guard('faculty')->user()->Name);
         
         if(!Auth::guard('faculty')->check()){
             return redirect()->route('faculty.login')->with('error','You do not have access of Faculty panel');

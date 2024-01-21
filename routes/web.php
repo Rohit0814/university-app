@@ -23,13 +23,13 @@ Route::get('/', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
-Route::middleware(['admin'])->name('admin.')->group(function () {
+Route::middleware(['admin','PreventBackHistory'])->name('admin.')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
     Route::prefix('admin')->group(function () {
@@ -38,20 +38,21 @@ Route::middleware(['admin'])->name('admin.')->group(function () {
         Route::post('/login', [AdminController::class, 'login_submit'])->name('login_submit')->withoutMiddleware('admin');
     });
 });
+// Route::get('faculty/dashboard',[FacultyController::class,'index'])->name('faculty.dashboard');
 
-
-Route::middleware(['faculty'])->name('faculty.')->group(function(){
+Route::middleware(['faculty','PreventBackHistory'])->name('faculty.')->group(function(){
     Route::get('faculty/dashboard',[FacultyController::class,'index'])->name('dashboard');
 
     Route::prefix('faculty')->group(function(){
         Route::post('/logout',[FacultyController::class,'logout'])->name('logout');
         Route::get('/login',[FacultyController::class,'login'])->name('login')->withoutMiddleware('faculty');
-        Route::post('/login', [FacultyController::class, 'login_submit'])->name('login_submit')->withoutMiddleware('faculty');
+        Route::post('/login', [FacultyController::class, 'facultyLogin'])->name('login_submit')->withoutMiddleware('faculty');
     });
 });
 
 
-Route::middleware('student')->name('student.')->group(function(){
+
+Route::middleware(['student','PreventBackHistory'])->name('student.')->group(function(){
     Route::get('student/dashboard',[StudentController::class,'index'])->name('dashboard');
 
     Route::prefix('student')->group(function(){

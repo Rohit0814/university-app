@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     public function index(Request $request){
+        // dd('Middleware executing', Auth::getDefaultDriver());
         return view('admin.dashboard');
     }
 

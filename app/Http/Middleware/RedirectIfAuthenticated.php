@@ -19,20 +19,20 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        $guards = empty($guards) ? [null] : $guards;
-
+        // $guards = empty($guards) ? [null] : $guards;
+        $guards = ['admin', 'faculty', 'student'];
         foreach ($guards as $guard) {
-            if ($guard == 'admin' && Auth::guard($guard)->check()) {
-                return redirect(AdminServiceProvider::ADMINHOME);
-            }
-
-            if ($guard == 'faculty' && Auth::guard($guard)->check()) {
-                return redirect(FacultyServiceProvider::FACULTYHOME);
-            }
-
-
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+            if(Auth::guard($guard)->check()){
+                
+                if($guard == 'admin'){
+                    return redirect()->route('admin.dashboard');
+                }
+                elseif($guard == 'faculty'){
+                    return redirect()->route('faculty.dashboard');
+                }
+                elseif($guard == 'student'){
+                    return redirect()->route('student.dashboard');
+                }
             }
         }
 

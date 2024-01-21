@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -14,27 +15,30 @@ class FacultyController extends Controller
     }
 
     public function login(){
+        // Auth::shouldUse('faculty');
         if (Auth::guard('faculty')->check()) {
             return redirect()->route('faculty.dashboard');
         }
         return view('faculty.auth.login');
     }
 
-    public function login_submit(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    public function facultyLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    $credentials = $request->only('email', 'password');
+        
+
+        $credentials = $request->only('email', 'password');
 
     if (Auth::guard('faculty')->attempt($credentials)) {
         return redirect()->route('faculty.dashboard')->with('success', 'Login Successful');
     } else {
         return redirect()->route('faculty.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
-}
+    }
 
 
     public function logout(){

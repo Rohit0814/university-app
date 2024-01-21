@@ -4,10 +4,10 @@
 
     {{-- <h4>Welcome {{ $content }}</h4> --}}
     <div class="flex justify-center mb-5 mt-5 max-[320px]:text-xl text-3xl font-semibold selection:bg-none capitalize">
-    Welcome {{ $userType }}
+    Welcome 
     </div>
 
-    <form method="POST" action="{{ route('login.store',$userType) }}">
+    <form method="POST" action="{{ route('login.store') }}">
         @csrf
 
         <!-- Email Address -->

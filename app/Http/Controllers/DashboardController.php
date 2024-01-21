@@ -14,5 +14,11 @@ class DashboardController extends Controller
         if($userType=='admin'){
             return redirect()->route('admin.dashboard');
         }
+        if($userType=='faculty'){
+            return redirect()->route('faculty.dashboard');
+        }
+        if($userType=='student'){
+            return redirect()->route('student.dashboard');
+        }
     }
 }
