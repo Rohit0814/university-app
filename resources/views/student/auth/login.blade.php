@@ -1,4 +1,4 @@
-<x-admin-guest-layout>
+<x-student-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -6,6 +6,7 @@
     <div class="flex justify-center mb-5 mt-5 max-[320px]:text-xl text-3xl font-semibold selection:bg-none capitalize">
     Welcome Student
     </div>
+    <div class=" w-full h-[0.1rem] bg-green-700 mb-4"></div>
 
     <form method="POST" action="{{ route('student.login_submit') }}">
         @csrf
@@ -30,22 +31,28 @@
 
         <!-- Email Address -->
         <div>
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             {{-- <x-input-label for="email" :value={{ $data }} /> --}}
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full pl-12 tracking-wider focus:border-green-700 focus:ring-green-700" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+        <div class="relative bottom-[2.1rem] left-3 flex w-fit"><i class="fa-solid fa-envelope text-xl"></i></div>
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div>
+        <div>
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <x-text-input id="password" class="block mt-1 w-full pl-12 tracking-wider focus:border-green-700 focus:ring-green-700"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+        <div class="relative bottom-[2.1rem] left-3 flex w-fit"><i class="fa-solid fa-lock text-xl"></i></div>
         </div>
 
         <!-- Remember Me -->
@@ -70,4 +77,4 @@
     </form>
 
 
-</x-admin-guest-layout>
+</x-student-guest-layout>

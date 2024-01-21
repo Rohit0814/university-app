@@ -13,13 +13,17 @@ class LoginCardComponent extends Component
     public $fontIcon;
     public $userType;
     public $extendClass;
-    public function __construct($designation, $description, $fontIcon, $userType,$extendClass)
+    public $authPropert;
+    public $authLogo;
+    public function __construct($designation, $description, $fontIcon, $userType,$extendClass, $authPropert, $authLogo)
     {
         $this->designation = $designation;
         $this->description = $description;
         $this->fontIcon = $fontIcon;
         $this->userType = $userType;
         $this->extendClass = $extendClass;
+        $this->authPropert = $authPropert;
+        $this->authLogo = $authLogo;
     }
 
     /**

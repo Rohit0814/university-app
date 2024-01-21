@@ -21,6 +21,10 @@ class AdminController extends Controller
         return view('admin.auth.login');
     }
 
+    public function home(){
+        return view('welcome');
+    }
+
     public function login_submit(Request $request)
 {
     $request->validate([
@@ -31,7 +35,8 @@ class AdminController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::guard('admin')->attempt($credentials)) {
-        return redirect()->route('admin.dashboard')->with('success', 'Login Successful');
+        // return redirect()->route('admin.dashboard')->with('success', 'Login Successful');
+        return redirect()->route('home');
     } else {
         return redirect()->route('admin.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
@@ -40,6 +45,6 @@ class AdminController extends Controller
 
     public function logout(){
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.login')->with('success','Logout successfull');
+        return redirect()->route('admin.login');
     }
 }

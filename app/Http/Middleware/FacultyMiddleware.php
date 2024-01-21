@@ -24,7 +24,7 @@ class FacultyMiddleware
         // dd(Auth::guard('faculty')->user()->Name);
         
         if(!Auth::guard('faculty')->check()){
-            return redirect()->route('faculty.login')->with('error','You do not have access of Faculty panel');
+            return redirect()->route('faculty.login');
         }
 
 

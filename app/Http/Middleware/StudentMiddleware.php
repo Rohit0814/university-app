@@ -19,7 +19,7 @@ class StudentMiddleware
         // dd(Auth::guard('student')->check());
 
         if(!Auth::guard('student')->check()){
-            return redirect()->route('student.login')->with('error','You do not have access');
+            return redirect()->route('student.login');
         }
         
         return $next($request);

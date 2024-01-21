@@ -30,7 +30,8 @@ class StudentController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::guard('student')->attempt($credentials)) {
-        return redirect()->route('student.dashboard')->with('success', 'Login Successful');
+        // return redirect()->route('student.dashboard')->with('success', 'Login Successful');
+        return redirect()->route('home');
     } else {
         return redirect()->route('student.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
@@ -39,6 +40,6 @@ class StudentController extends Controller
 
     public function logout(){
         Auth::guard('student')->logout();
-        return redirect()->route('student.login')->with('success','Logout successfull');
+        return redirect()->route('student.login');
     }
 }

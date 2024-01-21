@@ -20,7 +20,7 @@ class AdminMiddleware
     {
         // dd(session()->all());
         if (!Auth::guard('admin')->check()) {
-            return redirect()->route('admin.login')->with('error', 'You do not have access');
+            return redirect()->route('admin.login');
         }
 
         return $next($request);

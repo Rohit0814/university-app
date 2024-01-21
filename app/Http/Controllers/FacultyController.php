@@ -34,7 +34,8 @@ class FacultyController extends Controller
         $credentials = $request->only('email', 'password');
 
     if (Auth::guard('faculty')->attempt($credentials)) {
-        return redirect()->route('faculty.dashboard')->with('success', 'Login Successful');
+        // return redirect()->route('faculty.dashboard')->with('success', 'Login Successful');
+        return redirect()->route('home');
     } else {
         return redirect()->route('faculty.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
@@ -43,6 +44,6 @@ class FacultyController extends Controller
 
     public function logout(){
         Auth::guard('faculty')->logout();
-        return redirect()->route('faculty.login')->with('success','Logout successfull');
+        return redirect()->route('faculty.login');
     }
 }

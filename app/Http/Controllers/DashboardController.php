@@ -11,14 +11,6 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request,$userType)
     {
-        if($userType=='admin'){
-            return redirect()->route('admin.dashboard');
-        }
-        if($userType=='faculty'){
-            return redirect()->route('faculty.dashboard');
-        }
-        if($userType=='student'){
-            return redirect()->route('student.dashboard');
-        }
+            
     }
 }
