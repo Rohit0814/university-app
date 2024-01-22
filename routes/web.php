@@ -26,6 +26,7 @@ Route::middleware(['admin','PreventBackHistory'])->name('admin.')->group(functio
 
     Route::prefix('admin')->group(function () {
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+        Route::get('/setting',[AdminController::class, 'setting'])->name('setting');
         Route::get('/login',[AdminController::class,'login'])->name('login')->withoutMiddleware('admin');
         Route::post('/login', [AdminController::class, 'login_submit'])->name('login_submit')->withoutMiddleware('admin');
     });

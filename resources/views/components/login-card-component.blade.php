@@ -12,6 +12,8 @@
             {{ route('faculty.login') }}
             @elseif($userType=='student')
             {{ route('student.login') }}
+            @elseif ($userType=='adminSetting')
+            {{ route('admin.setting') }}
             @endif
             " class="font-semibold text-black hover:text-blue-800 hover:font-extrabold">{{ $authPropert }}&nbsp;<i class="{{ $authLogo }}"></i></a>
     </div>

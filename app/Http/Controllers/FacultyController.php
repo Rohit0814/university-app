@@ -19,6 +19,10 @@ class FacultyController extends Controller
         if (Auth::guard('faculty')->check()) {
             return redirect()->route('faculty.dashboard');
         }
+        if(Auth::guard('admin')->check() || Auth::guard('student')->check()){
+            return redirect()->route('home');
+        }
+
         return view('faculty.auth.login');
     }
 

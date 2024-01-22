@@ -17,6 +17,9 @@ class StudentController extends Controller
         if (Auth::guard('student')->check()) {
             return redirect()->route('student.dashboard');
         }
+        if(Auth::guard('admin')->check() || Auth::guard('faculty')->check()){
+            return redirect()->route('home');
+        }
         return view('student.auth.login');
     }
 

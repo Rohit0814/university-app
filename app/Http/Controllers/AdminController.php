@@ -18,7 +18,14 @@ class AdminController extends Controller
         if (Auth::guard('admin')->check()) {
             return redirect()->route('admin.dashboard');
         }
+        if(Auth::guard('faculty')->check() || Auth::guard('student')->check()){
+            return redirect()->route('home');
+        }
         return view('admin.auth.login');
+    }
+
+    public function setting(){
+        return view('admin.setting');
     }
 
     public function home(){
