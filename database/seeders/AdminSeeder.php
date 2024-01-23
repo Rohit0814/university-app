@@ -17,6 +17,11 @@ class AdminSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => '9234223298',
+            'Institution_Name' => 'University Auth',
+            'Tag_line' => 'Everyone have right of education',
+            'URL' => '127.0.0.1',
+            'Time_Zone' => 'UTC-0',
+            'Address' => 'Ranchi Jharkhand - 834010',
         ]);
     }
 }
