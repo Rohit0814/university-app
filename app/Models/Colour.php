@@ -9,6 +9,8 @@ class Colour extends Model
 {
     use HasFactory;
 
+    protected $table = 'colours';
+
     protected $fillable = [
         'Navbar_background',
         'Heading_background',

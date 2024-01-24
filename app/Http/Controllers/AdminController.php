@@ -11,29 +11,21 @@ use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     public function index(Request $request){
+        $colours = Colour::all();
+        $data = compact('colours');
         // dd('Middleware executing', Auth::getDefaultDriver());
-        return view('admin.dashboard');
+        return view('admin.dashboard')->with($data);
     }
 
     public function login(){
-        $colour = Colour::all();
-        $data = compact('colour');
         // dd($data);
         if (Auth::guard('admin')->check()) {
-            return redirect()->route('admin.dashboard')->with($data);
+            return redirect()->route('admin.dashboard');
         }
         if(Auth::guard('faculty')->check() || Auth::guard('student')->check()){
             return redirect()->route('home');
         }
         return view('admin.auth.login');
-    }
-
-    public function setting(){
-        return view('admin.setting');
-    }
-
-    public function colorSetting(){
-        return view('admin.color-setting');
     }
 
     public function home(){
@@ -50,28 +42,11 @@ class AdminController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::guard('admin')->attempt($credentials)) {
-        // return redirect()->route('admin.dashboard')->with('success', 'Login Successful');
         return redirect()->route('home');
     } else {
         return redirect()->route('admin.login')->with('error', 'Login Unsuccessful Credentials not Match');
     }
 }
-
-public function generalSetting(Request $request){
-    // return redirect()->route('admin.dashboard');
-    $admin = Admin::find(Auth::guard('admin')->user()->id);
-    $admin->name= Auth::guard('admin')->user()->name;
-    $admin->Institution_Name = $request['instituionName'];
-    $admin->Tag_line = $request['tagLine'];
-    $admin->URL = $request['URL'];
-    $admin->email=$request['email'];
-    $admin->password = $request['password'];
-    $admin->Time_Zone = $request['timeZone'];
-    $admin->Address = $request['address'];
-    $admin->save();
-    return redirect()->route('admin.setting');
-}
-
 
     public function logout(){
         Auth::guard('admin')->logout();

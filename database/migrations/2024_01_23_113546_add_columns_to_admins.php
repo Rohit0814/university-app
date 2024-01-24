@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('URL');
             $table->string('Time_Zone');
             $table->string('Address');
+            $table->string('profile_photo')->nullable();
         });
     }
 

@@ -70,7 +70,7 @@
                         </div>
                     </a>
                 </div>
-                <form method="post" action="{{ route('admin.general.setting') }}">
+                <form method="post" action="{{ route('admin.general.setting') }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                 <div class="bg-slate-100 temp3 pb-10">
@@ -97,6 +97,7 @@
                         <x-admin-general-setting label='Password' labelValue="{{ Auth::guard('admin')->user()->password }}" boxType="password" name="password"/>
                         <x-admin-general-setting label='Time Zone' labelValue="{{ Auth::guard('admin')->user()->Time_Zone }}" boxType="select" name="timeZone"/>
                         <x-admin-general-setting label='Address' labelValue="{{ Auth::guard('admin')->user()->Address }}" boxType="textArea" name="address"/>
+                        <x-admin-general-setting label="profile Image" labelValue="{{ Auth::guard('admin')->user()->profile_photo }}" boxType="profile" name="profileImage" />
                     </div>
                 </div>
                 </form>

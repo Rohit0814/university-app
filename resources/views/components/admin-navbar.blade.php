@@ -1,66 +1,81 @@
-<div class="navbar-side transition-all duration-100 w-1/5 bg-white max-[1160px]:hidden"
-    style="box-shadow: 5px 0px 7px -7px rgba(0,0,0,0.75);">
-    <div class="flex justify-center pt-7 pb-7" style="background:#11235A;">
-        <h2 class="font-semibold text-xl text-white leading-tight">
+@foreach ($colours as $c )
+@if($c->Status == 'true')
+
+<div class="navbar-side transition-all duration-100 w-1/5 max-[1160px]:hidden"
+    style="box-shadow: 5px 0px 7px -7px rgba(0,0,0,0.75); background: {{ $c->Heading_background }}">
+    <div class="flex justify-center pt-7 pb-7" style="background:{{ $c->Navbar_background }}">
+        <h2 class="font-semibold text-xl leading-tight" style="color:{{ $c->Navbar_text }}">
             {{ __('Admin Setting') }}
         </h2>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 bg-blue-200 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-sliders pr-5"></i> General</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" style="background:{{ $c->Navbar_text }}" onclick="window.location='{{ route('admin.setting') }}';">
+        <a href="{{ route('admin.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-sliders pr-5"></i> General</a>
     </div>
-    <a href="">
-        <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-            <a href="#" class="text-xl pl-5"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
+    <a href="#">
+        <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.blog.setting') }}';">
+            <a href="{{ route('admin.blog.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
         </div>
     </a>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2  hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
     </div>
 </div>
 
 
 
-<div class="responsive-bar h-full z-10 hidden absolute transition-all duration-100  bg-white max-[1160px]:hidden"
-    style="box-shadow: 5px 0px 7px -7px rgba(0,0,0,0.75);">
-    <div class="flex justify-center pt-7 pb-7" style="background:#11235A;">
-        <h2 class="font-semibold text-xl text-white leading-tight">
+<div class="responsive-bar h-full z-10 hidden absolute transition-all duration-100  max-[1160px]:hidden"
+    style="box-shadow: 5px 0px 7px -7px rgba(0,0,0,0.75); background: {{ $c->Heading_background }}">
+    <div class="flex justify-center pt-7 pb-7" style="background:{{ $c->Navbar_background }}">
+        <h2 class="font-semibold text-xl  leading-tight" style="color:{{ $c->Navbar_text }}">
             {{ __('Admin Setting') }}
         </h2>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 bg-blue-200 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-sliders pr-5"></i> General</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 bg-blue-200 hover:bg-blue-200 hover:cursor-pointer" style="background:{{ $c->Navbar_text }}" onclick="window.location='{{ route('admin.setting') }}';">
+        <a href="{{ route('admin.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-sliders pr-5"></i> General</a>
     </div>
     <a href="">
-        <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-            <a href="#" class="text-xl pl-5"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
+        <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+            onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.blog.setting') }}';">
+            <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
         </div>
     </a>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
     </div>
-    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer">
-        <a href="#" class="text-xl pl-5"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
+    <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
+        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
     </div>
 </div>
 
@@ -119,4 +134,7 @@
             });
         });
 </script>
+
+@endif
+@endforeach
 

@@ -21,6 +21,7 @@
 
 <body class="h-screen">
 
+
     @if (Route::has('faculty.dashboard'))
         @auth('faculty')
             <x-faculty-layout>

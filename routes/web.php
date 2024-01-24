@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\ProfileController;
@@ -25,12 +26,14 @@ Route::middleware(['admin','PreventBackHistory'])->name('admin.')->group(functio
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('dashboard');
 
     Route::prefix('admin')->group(function () {
-        Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
-        Route::get('/setting',[AdminController::class, 'setting'])->name('setting');
-        Route::put('/general/setting', [AdminController::class,'generalSetting'])->name('general.setting');
-        Route::get('/color/setting',[AdminController::class ,'colorSetting'])->name('setting.color');
+        Route::get('/setting',[AdminSettingController::class, 'setting'])->name('setting');
+        Route::post('/color/change/{id}',[AdminSettingController::class, 'changeColors'])->name('change.color');
+        Route::put('/general/setting', [AdminSettingController::class,'generalSetting'])->name('general.setting');
+        Route::get('/color/setting',[AdminSettingController::class ,'colorSetting'])->name('setting.color');
+        Route::get('/blog/setting',[AdminSettingController::class, 'blogSetting'])->name('blog.setting');
         Route::get('/login',[AdminController::class,'login'])->name('login')->withoutMiddleware('admin');
         Route::post('/login', [AdminController::class, 'login_submit'])->name('login_submit')->withoutMiddleware('admin');
+        Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
     });
 });
 

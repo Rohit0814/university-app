@@ -21,7 +21,7 @@
             <div class="w-full t2">
                 <x-admin-header>
                     <div
-                        class="lable ml-10 max-[736px]:ml-1 border-l-4 flex justify-center max-[673px]:text-sm items-center border-blue-800 pt-2 pb-2 pl-3 pr-3 bg-white">
+                        class="lable ml-10 max-[736px]:ml-1 border-l-4 break-words flex justify-center max-[673px]:text-sm items-center border-blue-800 pt-2 pb-2 pl-3 pr-3 bg-white">
                         <i
                             class="fa-solid fa-info flex justify-center items-center bg-blue-800 text-white rounded-full  w-6 h-6"></i>
                         <span class="pl-5 font-extrabold">Design Setting - </span><span>&nbsp;Update Setting related
@@ -38,211 +38,105 @@
                 <div class=" flex w-full h-12">
                     <a href={{ Route('admin.setting') }}>
                         <div
-                            class="flex justify-center items-center border-4  border-slate-200   w-fit pl-10 pr-10 ml-5 h-full bg-slate-300 cursor-pointer">
+                            class="flex justify-center items-center border-4  border-slate-200   w-fit pl-10 pr-10 ml-5 max-[333px]:ml-auto max-[333px]:text-sm h-full bg-slate-300 cursor-pointer">
                             <span>General</span>
                         </div>
                     </a>
                     <a href={{ Route('admin.setting.color') }}>
                         <div
-                            class="flex justify-center items-center  border-t-4 border-blue-800 bg-white  w-fit pl-10 pr-10 ml-5 h-full cursor-pointer">
+                            class="flex justify-center items-center  border-t-4 border-blue-800 bg-white  w-fit pl-10 pr-10 ml-5 max-[333px]:ml-1 max-[333px]:text-sm h-full cursor-pointer">
                             <span>Colour Sets</span>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-slate-100  temp3 pb-10">
-                    <div class="flex justify-between ml-28 mr-28 mt-7 max-[1000px]:ml-8 max-[1000px]:mr-5">
+                    <div class="flex justify-between ml-12 mr-12 mt-7 max-[1000px]:ml-8 max-[1000px]:mr-5">
                         <div>
-                            <span class="text-2xl font-bold">Colors Setting</span>
+                            <span class="text-2xl font-bold max-[380px]:text-lg">Colors Setting</span>
                         </div>
                         <div>
                             <a href=# class="save text-green-600"><i
-                                    class="fa-solid  text-green-600 fa-floppy-disk text-2xl"></i><span
-                                    class="text-xl">&nbsp;Save</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    class="fa-solid  text-green-600 fa-floppy-disk text-2xl max-[380px]:text-lg"></i><span
+                                    class="text-xl max-[380px]:text-lg">&nbsp;Save</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <a href=# class="cancel text-red-600"><i
-                                    class="fa-solid fa-xmark text-red-600 text-2xl"></i><span
-                                    class="text-xl">&nbsp;Reset</span></a>
+                                    class="fa-solid fa-xmark text-red-600 text-2xl max-[380px]:text-lg"></i><span
+                                    class="text-xl max-[380px]:text-lg">&nbsp;Reset</span></a>
                         </div>
                     </div>
 
-                    <div class="mt-8 ml-40">
+                    <div class="mt-8 ml-12 max-[370px]:ml-auto">
                         <div>
                             <span class="text-xl">Selected Color</span>
                         </div>
-                        <div class="w-1/4 ml-10 mt-5">
-                            <div class="w-full h-32" style="background:#11235A;">
+                        <div class="flex max-[680px]:justify-center">
+                        @foreach ($colours as $c)
+                        @if ($c->Status == 'true')
+                        <div class=" w-[260px] rounded-xl ml-3 mr-3 mt-5">
+                            <div class="w-full h-[110px] rounded-t-xl" style="background:{{ $c->Navbar_background }}">
                                 <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
+                                <div class="text-white flex justify-end pr-3 pt-16 h-full"></div>
                             </div>
-                            <div class="w-full h-24 bg-slate-400">
+                            
+                            <div class="w-full h-[70px]" style="background: {{ $c->Heading_background }}">
                                 <div class="text-white pt-3 pl-3">Heading Background</div>
-                                <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
+                                <div class="text-white flex justify-end pr-3 pt-7 h-full"></div>
                             </div>
-                            <div class="w-full h-16" style="background: black">
-                                <div class="text-white pl-3">Heading & Navbar  text</div>
-                                <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
+                            <div class="w-full h-[50px]" style="background: {{ $c->Navbar_text }}">
+                                <div class="text-white pl-3">Navbar  text</div>
+                                <div class="text-white flex justify-end pr-3 pt-4 h-full"></div>
                             </div>
-                            <div class="w-full h-12" style="background: white">
-                                <div class="text-black pl-3">Heading & Navbar  text</div>
-                                <div class="text-black flex justify-end pr-3 h-full">#000000</div>
+                            <div class="w-full h-[40px]  " style="background: {{ $c->Heading_text }}">
+                                <div class="text-black pl-3">Heading text</div>
+                                <div class="text-black flex justify-end pr-3 h-full"></div>
                             </div>
-                            <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                <div class="text-black pl-3 font-extrabold"></div>
-                                <div class="text-black pr-3"><a href=# class=" bg-slate-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg pointer-events-none">Selected</a></div>
+                                <div class="w-full flex justify-between items-center">
+                                    <button type="submit" class="w-full pointer-events-none"><a href=# class="w-full"><div class=" bg-slate-300 w-full text-white rounded-b-xl pt-2 pb-2 pl-8 pr-8">Selected</div></a><button>
                             </div>
+                        </div>
+                        @endif
+                        @endforeach
                         </div>
                     </div>
 
-                    <div class="mt-8 ml-40">
+                    <div class="mt-8 ml-12 max-[370px]:ml-auto">
                         <div>
                             <span class="text-xl">Color Options</span>
                         </div>
 
-                        <div class="flex flex-wrap">
-                            <div class="w-1/4 ml-10 mt-5">
-                                <div class="w-full h-32" style="background:#11235A;">
+                        <div class="flex">
+                        <div class="flex justify-center flex-wrap">
+                            @foreach ($colours as $c )
+                            @if($c->Status != 'true')
+                            <div class=" w-[260px] rounded-xl ml-4 mr-10 mt-5">
+                                <div class="w-full h-[110px] rounded-t-xl" style="background:{{ $c->Navbar_background }}">
                                     <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
+                                    <div class="text-white flex justify-end pr-3 pt-16 h-full"></div>
                                 </div>
-                                <div class="w-full h-24 bg-slate-400">
-                                    <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
-                                </div>
-                                <div class="w-full h-16" style="background: black">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
-                            </div>
-
-                            {{-- {{  dd($colour); }} --}}
-
-                            <div class="w-1/4 ml-10 mt-5">
-                                {{-- @foreach ($colour as $c ) --}}
-                                <div class="w-full h-32" style="background:red">
-                                    <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
-                                </div>
-                                {{-- @endforeach --}}
                                 
-                                <div class="w-full h-24" style="background: #a4aac1">
+                                <div class="w-full h-[70px]" style="background: {{ $c->Heading_background }}">
                                     <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
+                                    <div class="text-white flex justify-end pr-3 pt-7 h-full"></div>
                                 </div>
-                                <div class="w-full h-16" style="background: #000000">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
+                                <div class="w-full h-[50px]" style="background: {{ $c->Navbar_text }}">
+                                    <div class="text-white pl-3">Navbar  text</div>
+                                    <div class="text-white flex justify-end pr-3 pt-4 h-full"></div>
                                 </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
+                                <div class="w-full h-[40px]  " style="background: {{ $c->Heading_text }}">
+                                    <div class="text-black pl-3">Heading text</div>
+                                    <div class="text-black flex justify-end pr-3 h-full"></div>
                                 </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
+                                <form action="{{ route('admin.change.color',['id' => $c->id]) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="{{ $c->id }}" name="colorCode">
+                                    <div class="w-full flex justify-between items-center">
+                                        <button type="submit" class="w-full"><a href=# class="w-full"><div class="bg-green-700 w-full text-white rounded-b-xl pt-2 pb-2 pl-8 pr-8">Select</div></a><button>
+                                    </div>
+                                </form>
                             </div>
-
-
-                            <div class="w-1/4 ml-10 mt-5">
-                                <div class="w-full h-32" style="background:#11235A;">
-                                    <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
-                                </div>
-                                <div class="w-full h-24 bg-slate-400">
-                                    <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
-                                </div>
-                                <div class="w-full h-16" style="background: black">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
-                            </div>
-
-
-                            <div class="w-1/4 ml-10 mt-5">
-                                <div class="w-full h-32" style="background:#11235A;">
-                                    <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
-                                </div>
-                                <div class="w-full h-24 bg-slate-400">
-                                    <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
-                                </div>
-                                <div class="w-full h-16" style="background: black">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/4 ml-10 mt-5">
-                                <div class="w-full h-32" style="background:#11235A;">
-                                    <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
-                                </div>
-                                <div class="w-full h-24 bg-slate-400">
-                                    <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
-                                </div>
-                                <div class="w-full h-16" style="background: black">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
-                            </div>
-
-                            <div class="w-1/4 ml-10 mt-5">
-                                <div class="w-full h-32" style="background:#11235A;">
-                                    <div class="text-white pt-3 pl-3">Header & Navbar</div>
-                                    <div class="text-white flex justify-end pr-3 pt-16 h-full">#11235A</div>
-                                </div>
-                                <div class="w-full h-24 bg-slate-400">
-                                    <div class="text-white pt-3 pl-3">Heading Background</div>
-                                    <div class="text-white flex justify-end pr-3 pt-7 h-full">bg-slate-400</div>
-                                </div>
-                                <div class="w-full h-16" style="background: black">
-                                    <div class="text-white pl-3">Heading & Navbar  text</div>
-                                    <div class="text-white flex justify-end pr-3 pt-4 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12" style="background: white">
-                                    <div class="text-black pl-3">Heading & Navbar  text</div>
-                                    <div class="text-black flex justify-end pr-3 h-full">#000000</div>
-                                </div>
-                                <div class="w-full h-12 bg-blue-400 pt-5 pb-5 flex justify-between items-center">
-                                    <div class="text-black pl-3 font-extrabold"></div>
-                                    <div class="text-black pr-3"><a href=# class=" bg-green-700 text-white pt-2 pb-2 pl-8 pr-8 rounded-lg">Select</a></div>
-                                </div>
-                            </div>
+                            @endif
+                            @endforeach
+                        </div>
                         </div>
                     </div>
                 </div>
