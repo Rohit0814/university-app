@@ -12,13 +12,35 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
+    <style>
+        .scroll1::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        /* Track */
+        .scroll1::-webkit-scrollbar-track {
+            background: #606891;
+            border-radius: 5px;
+        }
+        
+        /* Handle */
+        .scroll1::-webkit-scrollbar-thumb {
+            background: #030065;
+            border-radius: 5px;
+        }
+        
+        /* Handle on hover */
+        .scroll1::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
 </head>
 
 <body>
     <x-admin-layout>
         <div class="flex absolute w-full temp">
             <x-admin-navbar />
-            <div class="w-full t2">
+            <div class="w-[80%] t2 max-[1160px]:w-full">
                 <x-admin-header>
                     <div
                         class="lable ml-10 max-[736px]:ml-1 border-l-4 break-words flex justify-center max-[673px]:text-sm items-center border-blue-800 pt-2 pb-2 pl-3 pr-3 bg-white">
@@ -67,7 +89,7 @@
 
                     <div class="mt-8 ml-12 max-[370px]:ml-auto">
                         <div>
-                            <span class="text-xl">Selected Color</span>
+                            <span class="text-xl font-extrabold">Selected Color</span>
                         </div>
                         <div class="flex max-[680px]:justify-center">
                         @foreach ($colours as $c)
@@ -101,11 +123,11 @@
 
                     <div class="mt-8 ml-12 max-[370px]:ml-auto">
                         <div>
-                            <span class="text-xl">Color Options</span>
+                            <span class="text-xl font-extrabold">Color Options</span>
                         </div>
 
                         <div class="flex">
-                        <div class="flex justify-center flex-wrap">
+                        <div class="scroll1 grid grid-flow-col-dense overflow-x-scroll pb-5 mr-8">
                             @foreach ($colours as $c )
                             @if($c->Status != 'true')
                             <div class=" w-[260px] rounded-xl ml-4 mr-10 mt-5">
@@ -139,6 +161,87 @@
                         </div>
                         </div>
                     </div>
+
+                    <div class="mt-8 ml-12 max-[370px]:ml-auto">
+                        <div class="">
+                            <span class="text-xl font-extrabold">Light Colours Palette</span>
+                        </div>
+                        <div class="flex">
+                            <div class="scroll1 grid grid-flow-col-dense overflow-x-scroll pb-5 mr-8">
+                                @foreach ($colours as $c )
+                                @if($c->Status != 'true' && $c->palette == 'light')
+                                <div class=" w-[260px] rounded-xl ml-4 mr-10 mt-5">
+                                    <div class="w-full h-[110px] rounded-t-xl" style="background:{{ $c->Navbar_background }}">
+                                        <div class="text-white pt-3 pl-3">Header & Navbar</div>
+                                        <div class="text-white flex justify-end pr-3 pt-16 h-full"></div>
+                                    </div>
+                                    
+                                    <div class="w-full h-[70px]" style="background: {{ $c->Heading_background }}">
+                                        <div class="text-white pt-3 pl-3">Heading Background</div>
+                                        <div class="text-white flex justify-end pr-3 pt-7 h-full"></div>
+                                    </div>
+                                    <div class="w-full h-[50px]" style="background: {{ $c->Navbar_text }}">
+                                        <div class="text-white pl-3">Navbar  text</div>
+                                        <div class="text-white flex justify-end pr-3 pt-4 h-full"></div>
+                                    </div>
+                                    <div class="w-full h-[40px]  " style="background: {{ $c->Heading_text }}">
+                                        <div class="text-black pl-3">Heading text</div>
+                                        <div class="text-black flex justify-end pr-3 h-full"></div>
+                                    </div>
+                                    <form action="{{ route('admin.change.color',['id' => $c->id]) }}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{ $c->id }}" name="colorCode">
+                                        <div class="w-full flex justify-between items-center">
+                                            <button type="submit" class="w-full"><a href=# class="w-full"><div class="bg-green-700 w-full text-white rounded-b-xl pt-2 pb-2 pl-8 pr-8">Select</div></a><button>
+                                        </div>
+                                    </form>
+                                </div>
+                                @endif
+                                @endforeach
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="mt-8 ml-12 max-[370px]:ml-auto">
+                        <div class="">
+                            <span class="text-xl font-extrabold">Dark Colours Palette</span>
+                        </div>
+                        <div class="flex">
+                            <div class="scroll1 grid grid-flow-col-dense overflow-x-scroll pb-5 mr-8">
+                                @foreach ($colours as $c )
+                                @if($c->Status != 'true' && $c->palette == 'dark')
+                                <div class=" w-[260px] rounded-xl ml-4 mr-10 mt-5">
+                                    <div class="w-full h-[110px] rounded-t-xl" style="background:{{ $c->Navbar_background }}">
+                                        <div class="text-white pt-3 pl-3">Header & Navbar</div>
+                                        <div class="text-white flex justify-end pr-3 pt-16 h-full"></div>
+                                    </div>
+                                    
+                                    <div class="w-full h-[70px]" style="background: {{ $c->Heading_background }}">
+                                        <div class="text-white pt-3 pl-3">Heading Background</div>
+                                        <div class="text-white flex justify-end pr-3 pt-7 h-full"></div>
+                                    </div>
+                                    <div class="w-full h-[50px]" style="background: {{ $c->Navbar_text }}">
+                                        <div class="text-white pl-3">Navbar  text</div>
+                                        <div class="text-white flex justify-end pr-3 pt-4 h-full"></div>
+                                    </div>
+                                    <div class="w-full h-[40px]  " style="background: {{ $c->Heading_text }}">
+                                        <div class="text-black pl-3">Heading text</div>
+                                        <div class="text-black flex justify-end pr-3 h-full"></div>
+                                    </div>
+                                    <form action="{{ route('admin.change.color',['id' => $c->id]) }}" method="post">
+                                        @csrf
+                                        <input type="hidden" value="{{ $c->id }}" name="colorCode">
+                                        <div class="w-full flex justify-between items-center">
+                                            <button type="submit" class="w-full"><a href=# class="w-full"><div class="bg-green-700 w-full text-white rounded-b-xl pt-2 pb-2 pl-8 pr-8">Select</div></a><button>
+                                        </div>
+                                    </form>
+                                </div>
+                                @endif
+                                @endforeach
+                            </div>
+                            </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

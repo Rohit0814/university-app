@@ -1,7 +1,7 @@
 @foreach ($colours as $c )
 @if($c->Status == 'true')
 
-<div class="navbar-side transition-all duration-100 w-1/5 max-[1160px]:hidden"
+<div class="navbar-side transition-all sticky duration-100 w-1/5 max-[1160px]:hidden"
     style="box-shadow: 5px 0px 7px -7px rgba(0,0,0,0.75); background: {{ $c->Heading_background }}">
     <div class="flex justify-center pt-7 pb-7" style="background:{{ $c->Navbar_background }}">
         <h2 class="font-semibold text-xl leading-tight" style="color:{{ $c->Navbar_text }}">

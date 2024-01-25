@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('colours', function (Blueprint $table) {
             $table->string('Default')->nullable();
             $table->string('Status')->nullable();
+            $table->string('palette')->nullable();
         });
     }
 
