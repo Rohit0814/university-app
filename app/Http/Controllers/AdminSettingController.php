@@ -57,4 +57,16 @@ class AdminSettingController extends Controller
     public function blogSetting(){
         return view('admin.blog-setting');
     }
+
+    public function theamSetting(){
+        return view('admin.theam');
+    }
+
+    public function accessSetting(){
+        return view('admin.accessiblity');
+    }
+
+    public function roleSetting(){
+        return view('admin.user-roles');
+    }
 }

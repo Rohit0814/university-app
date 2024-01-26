@@ -31,6 +31,9 @@ Route::middleware(['admin','PreventBackHistory'])->name('admin.')->group(functio
         Route::put('/general/setting', [AdminSettingController::class,'generalSetting'])->name('general.setting');
         Route::get('/color/setting',[AdminSettingController::class ,'colorSetting'])->name('setting.color');
         Route::get('/blog/setting',[AdminSettingController::class, 'blogSetting'])->name('blog.setting');
+        Route::get('/theam/setting',[AdminSettingController::class, 'theamSetting'])->name('theam.setting');
+        Route::get('/accessiblity/setting',[AdminSettingController::class, 'accessSetting'])->name('access.setting');
+        Route::get('/roles/setting',[AdminSettingController::class, 'roleSetting'])->name('access.roles');
         Route::get('/login',[AdminController::class,'login'])->name('login')->withoutMiddleware('admin');
         Route::post('/login', [AdminController::class, 'login_submit'])->name('login_submit')->withoutMiddleware('admin');
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');

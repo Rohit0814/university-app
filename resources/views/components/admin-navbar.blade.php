@@ -18,16 +18,16 @@
         </div>
     </a>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.theam.setting') }}';">
+        <a href="{{ route('admin.theam.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theme</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2  hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.setting') }}';">
+        <a href="{{ route('admin.access.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.roles') }}';">
+        <a href="{{ route('admin.access.roles') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
         onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
@@ -54,20 +54,20 @@
     <a href="">
         <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
             onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.blog.setting') }}';">
-            <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
+            <a href="{{ route('admin.blog.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-blog pr-5"></i> Blog</a>
         </div>
     </a>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theam</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.theam.setting') }}';">
+        <a href="{{ route('admin.theam.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-thermometer pr-5"></i> Theme</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.setting') }}';">
+        <a href="{{ route('admin.access.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.roles') }}';">
+        <a href="{{ route('admin.access.roles') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
         onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
@@ -84,13 +84,13 @@
     $("#showslide").click(function() {
                 var hidden = $('.navbar-side');
                 if (hidden.hasClass('visible')) {
-                    hidden.show().animate({
-                        "width": "20%"
-                    }, "slow").removeClass('visible');
+                    hidden.show().removeClass('visible');
+                $('.side-bar').addClass('w-[80%]');
+                $('.side-bar').removeClass('w-full');
                 } else {
-                    hidden.hide().animate({
-                        "width": "0px"
-                    }, "slow").addClass('visible');
+                    hidden.hide().addClass('visible');
+                    $('.side-bar').removeClass('w-[80%]');
+                    $('.side-bar').addClass('w-full');
                 }
             });
 
