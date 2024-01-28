@@ -69,4 +69,12 @@ class AdminSettingController extends Controller
     public function roleSetting(){
         return view('admin.user-roles');
     }
+
+    public function toolSetting(){
+        return view('admin.tools');
+    }
+
+    public function domainSetting(){
+        return view('admin.domain');
+    }
 }

@@ -26,16 +26,16 @@
         <a href="{{ route('admin.access.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.roles') }}';">
-        <a href="{{ route('admin.access.roles') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.roles.setting') }}';">
+        <a href="{{ route('admin.roles.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.tool.setting') }}';">
+        <a href="{{ route('admin.tool.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.domain.setting') }}';">
+        <a href="{{ route('admin.domain.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }}"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
     </div>
 </div>
 
@@ -66,16 +66,16 @@
         <a href="{{ route('admin.access.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-eye pr-5"></i> Accessibility</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.access.roles') }}';">
-        <a href="{{ route('admin.access.roles') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.roles.setting') }}';">
+        <a href="{{ route('admin.roles.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-user-pen pr-5"></i> Users & Role</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.tool.setting') }}';">
+        <a href="{{ route('admin.tool.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-screwdriver-wrench pr-5"></i> Tools</a>
     </div>
     <div class="pt-3 pb-3 pl-10 max-[1360px]:pl-2 hover:bg-blue-200 hover:cursor-pointer" onmouseover="this.style.backgroundColor='{{ $c->Navbar_text }}'"
-        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'">
-        <a href="#" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
+        onmouseout="this.style.backgroundColor='{{ $c->Heading_background  }}'" onclick="window.location='{{ route('admin.domain.setting') }}';">
+        <a href="{{ route('admin.domain.setting') }}" class="text-xl pl-5" style="color:{{ $c->Heading_text }};"><i class="fa-solid fa-dove pr-5"></i> Domain</a>
     </div>
 </div>
 

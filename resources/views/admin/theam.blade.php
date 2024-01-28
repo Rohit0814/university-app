@@ -110,7 +110,7 @@
                         </div>
 
                         <div class=" flex justify-between flex-wrap pl-10 pb-10 pt-5">
-                            <div class=" w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                            <div class=" w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
                                 <div class="w-full h-3/5 bg-red-800">
                                     <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
                                 </div>
@@ -126,24 +126,7 @@
                             </div>
 
 
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
-                                <div class="w-full h-3/5 bg-red-800">
-                                    <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
-                                </div>
-                                <div class="flex flex-col items-center pt-6">
-                                    <div>
-                                    <p class="text-xl font-extrabold">Default</p>
-                                    </div>
-                                    <div>
-                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4">Preview</button>
-                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4 bg-green-900 text-white">Apply</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
                                 <div class="w-full h-3/5 bg-red-800">
                                     <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
                                 </div>
@@ -160,23 +143,7 @@
 
 
 
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
-                                <div class="w-full h-3/5 bg-red-800">
-                                    <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
-                                </div>
-                                <div class="flex flex-col items-center pt-6">
-                                    <div>
-                                    <p class="text-xl font-extrabold">Default</p>
-                                    </div>
-                                    <div>
-                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4">Preview</button>
-                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4 bg-green-900 text-white">Apply</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
                                 <div class="w-full h-3/5 bg-red-800">
                                     <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
                                 </div>
@@ -193,7 +160,7 @@
 
 
 
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
                                 <div class="w-full h-3/5 bg-red-800">
                                     <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
                                 </div>
@@ -209,7 +176,40 @@
                             </div>
 
 
-                            <div class="w-[25rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                                <div class="w-full h-3/5 bg-red-800">
+                                    <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
+                                </div>
+                                <div class="flex flex-col items-center pt-6">
+                                    <div>
+                                    <p class="text-xl font-extrabold">Default</p>
+                                    </div>
+                                    <div>
+                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4">Preview</button>
+                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4 bg-green-900 text-white">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
+                                <div class="w-full h-3/5 bg-red-800">
+                                    <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
+                                </div>
+                                <div class="flex flex-col items-center pt-6">
+                                    <div>
+                                    <p class="text-xl font-extrabold">Default</p>
+                                    </div>
+                                    <div>
+                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4">Preview</button>
+                                    <button class="pt-1 pb-1 pl-8 pr-8 border-4 bg-green-900 text-white">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="w-[20rem] mr-5 h-72 mt-3 mb-3 bg-white border-4 border-green-500 rounded-md">
                                 <div class="w-full h-3/5 bg-red-800">
                                     <img src="https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-01/5fb19810-33df-11eb-b5e9-cb6d63d43724.jpg" class="w-full h-full">
                                 </div>

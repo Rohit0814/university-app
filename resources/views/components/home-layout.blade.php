@@ -7,9 +7,9 @@
 <div class="flex w-full justify-around flex-wrap">
     @if (Route::has('admin.dashboard'))
         @auth('admin')
-        <x-login-card-component designation="Setting" description="Manage Setting" fontIcon="fa-solid fa-screwdriver-wrench text-yellow-600" userType="adminSetting" extendClass="border-yellow-600" authPropert="Explore" authLogo="fa-solid fa-gear" />
+        {{-- <x-login-card-component designation="Setting" description="Manage Setting" fontIcon="fa-solid fa-screwdriver-wrench text-yellow-600" userType="adminSetting" extendClass="border-yellow-600" authPropert="Explore" authLogo="fa-solid fa-gear" />
         <x-login-card-component designation="Admin" description="Welcome {{ Auth::guard('admin')->user()->name }}" fontIcon="fa-solid fa-user-tie text-yellow-600" userType="admin" extendClass="border-yellow-600" authPropert="Dashboard" authLogo="fa-solid fa-user-tie" />
-        <x-login-card-component designation="communication" description="Chatting" fontIcon="fa-solid fa-tower-broadcast text-yellow-600" userType="communication" extendClass="border-yellow-600" authPropert="Chat" authLogo="fa-regular fa-comments" />
+        <x-login-card-component designation="communication" description="Chatting" fontIcon="fa-solid fa-tower-broadcast text-yellow-600" userType="communication" extendClass="border-yellow-600" authPropert="Chat" authLogo="fa-regular fa-comments" /> --}}
     @elseif(Route::has('faculty.dashboard'))
             @auth('faculty')
             <x-login-card-component designation="Setting" description="Manage Setting" fontIcon="fa-solid fa-screwdriver-wrench text-blue-600" userType="faculty" extendClass="border-blue-600" authPropert="Explore" authLogo="fa-solid fa-gear" />
