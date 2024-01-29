@@ -42,7 +42,7 @@
     <x-admin-layout>
         <div class="flex absolute w-full temp">
             <x-admin-navbar />
-            <div class="side-bar w-[80%] t2 max-[1160px]:w-full">
+            <div class="side-bar w-[84.3%] t2 max-[1160px]:w-full">
                 <x-admin-header>
                     <div
                         class="lable ml-10 max-[736px]:ml-1 border-l-4 break-words flex justify-center max-[673px]:text-sm items-center border-blue-800 pt-2 pb-2 pl-3 pr-3 bg-white">

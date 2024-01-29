@@ -1,6 +1,6 @@
 @foreach ($colours as $c )
 @if($c->Status == 'true')
-<div class="pb-10 " style="background: {{ $c->Heading_background }}">
+<div class="pb-10 shadow ml-1 mr-1" style="background: {{ $c->Heading_background }}">
     <div class="ml-7 pt-3">
         <button id="showslide" class="max-[1160px]:hidden">
             <i class="fa-solid fa-bars text-2xl"></i>
