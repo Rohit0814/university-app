@@ -14,8 +14,8 @@
         @foreach ($colours as $c )
         @if($c->Status == 'true')
     <div class="bg-white w-60 h-screen shadow" style="background:{{ $c->Heading_background }}">
-        <div class="flex w-full items-center selection:bg-none">
-            <span class="text-2xl w-full text-center mt-10 mb-5 font-extrabold" style="color:{{ $c->Navbar_text }}">Dashboard</span>
+        <div class="flex w-full pt-7 pb-7 items-center selection:bg-none" style="background:{{ $c->Navbar_background }}">
+            <span class="text-2xl w-full text-center font-extrabold" style="color:{{ $c->Navbar_text }}">Dashboard</span>
         </div>
 
         <div class="flex justify-center selection:bg-none">
